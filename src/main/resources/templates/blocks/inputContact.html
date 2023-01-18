@@ -1,0 +1,83 @@
+<div th:fragment="input_about">
+
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso16.css"/>
+
+    <!-- Inline CSS based on choices in "Settings" tab -->
+    <style>.bootstrap-iso .form-group button, .bootstrap-iso form input.form-control, .bootstrap-iso form textarea.form-control, .bootstrap-iso form select.form-control, .bootstrap-iso form .form-group-lg input.form-control, .bootstrap-iso form .form-group-lg textarea.form-control, .bootstrap-iso form .form-group-lg select.form-control, .bootstrap-iso form .form-group-sm input.form-control, .bootstrap-iso form .form-group-sm textarea.form-control, .bootstrap-iso form .form-group-sm select.form-control {
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        border-radius: 20px;
+    }
+
+    .bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form {
+        font-family: Tahoma, Geneva, sans-serif;
+        color: #ffffff
+    }
+
+    .bootstrap-iso form button, .bootstrap-iso form button:hover {
+        color: #ffffff !important;
+    }
+
+    .bootstrap-iso .btn-custom {
+        background: rgba(72, 166, 204, 0.91)
+    }
+
+    .bootstrap-iso .btn-custom:hover {
+        background: #b087e1;
+    }
+
+    .bootstrap-iso .form-control:focus {
+        border-color: #b087e1;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(137, 82, 200, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(137, 82, 200, 0.6);
+    }
+
+
+    .bootstrap-iso form .input-group-addon {
+        color: #555555;
+        background-color: #eeeeee;
+        border-radius: 20px;
+        padding-left: 15px
+    }</style>
+
+    <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+    <div class="bootstrap-iso">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <form class="form-horizontal" method="post">
+                <div class="form-group form-group-lg">
+                    <label class="control-label col-sm-2" for="name">
+                        Name
+                    </label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="name" name="name" placeholder="Mr. Popeye" type="text"/>
+                    </div>
+                </div>
+                <div class="form-group form-group-lg">
+                    <label class="control-label col-sm-2" for="email">
+                        Email
+                    </label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="email" name="email" placeholder="mr.popeye@gmail.com" type="email"/>
+                    </div>
+                </div>
+                <div class="form-group form-group-lg">
+                    <label class="control-label col-sm-2" for="message">
+                        Message
+                    </label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" cols="40" id="message" name="message" rows="10"
+                                  placeholder="Ideas or any feedback for the project?"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-10 col-sm-offset-2">
+                        <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit">
+                            Contact Us!
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

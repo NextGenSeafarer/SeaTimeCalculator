@@ -1,0 +1,110 @@
+<div th:fragment="input_form">
+
+    <!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso16.css"/>
+
+    <!--Font Awesome (added because you use icons in your prepend/append)-->
+    <link rel="stylesheet" href="https://formden.com/static/cdn/font-awesome/4.4.0/css/font-awesome.min.css"/>
+
+    <!-- Inline CSS based on choices in "Settings" tab -->
+    <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form {
+        font-family: Tahoma, Geneva, sans-serif;
+        color: #ffffff
+    }
+
+    .bootstrap-iso form button, .bootstrap-iso form button:hover {
+        color: #ffffff !important;
+    }
+
+    .bootstrap-iso .btn-custom {
+        background: rgba(72, 166, 204, 0.91)
+    }
+
+    .bootstrap-iso .btn-custom:hover {
+        background: #b087e1;
+    }
+
+    .bootstrap-iso .form-control:focus {
+        border-color: #b087e1;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(137, 82, 200, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(137, 82, 200, 0.6);
+    }
+
+
+    .bootstrap-iso form .input-group-addon {
+        color: #ffffff;
+        background-color: #15191d;
+        border-radius: 4px;
+        padding-left: 12px;
+
+    }</style>
+    <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+    <div class="bootstrap-iso">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+
+
+            <div th:insert="~{blocks/tableForHome :: table}"></div>
+
+
+            <form method="post">
+                <div class="form-group form-group-lg ">
+                    <label class="control-label " for="begin_contract_date">
+                        Joining Date
+                    </label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar">
+                            </i>
+                        </div>
+                        <input class="form-control" id="begin_contract_date" name="begin_contract_date"
+                               type="date"/>
+                    </div>
+                </div>
+
+
+                <div class="form-group form-group-lg">
+                    <label class="control-label " for="end_contract_date">
+                        Sign off Date
+                    </label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-calendar">
+                            </i>
+                        </div>
+                        <input class="form-control" id="end_contract_date" name="end_contract_date"
+                               type="date"/>
+                    </div>
+                </div>
+
+
+                <div class="form-group form-group-lg">
+                    <label class="control-label " for="vessel_name">
+                        Vessel name
+                    </label>
+
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-ship">
+                            </i>
+                        </div>
+                        <input class="form-control" id="vessel_name" name="vessel_name" placeholder="Enter vessel name"
+                               type="text"/>
+                    </div>
+
+
+                </div>
+
+
+                <div class="form-group">
+                    <div>
+                        <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit">
+                            Count
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
