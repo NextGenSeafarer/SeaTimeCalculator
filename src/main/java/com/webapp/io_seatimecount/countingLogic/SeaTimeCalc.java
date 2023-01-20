@@ -1,9 +1,8 @@
 package com.webapp.io_seatimecount.countingLogic;
 
 
-import com.webapp.io_seatimecount.controllers.MainController;
+import com.webapp.io_seatimecount.components.ApplicationContextHolder;
 import com.webapp.io_seatimecount.hybernate.entity.TimeToAdd;
-
 
 import java.time.LocalDate;
 
@@ -28,7 +27,8 @@ public class SeaTimeCalc {
 
     private static int calculateSeaTime(LocalDate beginningOfTheContract, LocalDate endOfTheContract) {
         if (beginningOfTheContract.isAfter(endOfTheContract)) {
-            ControllerLogic.setWrongDates(true);
+            ApplicationContextHolder.getApplicationContext()
+                    .getBean("controllerLogic", ControllerLogic.class).setWrongDates(true);
         }
 
         LocalDate ldStart = beginningOfTheContract;

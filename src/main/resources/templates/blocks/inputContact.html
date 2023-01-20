@@ -50,7 +50,8 @@
                         Name
                     </label>
                     <div class="col-sm-10">
-                        <input class="form-control" id="name" name="name" placeholder="Mr. Popeye" type="text"/>
+                        <input class="form-control" id="name" name="name" placeholder="Mr. Popeye" type="text" maxlength="30"
+                               required/>
                     </div>
                 </div>
                 <div class="form-group form-group-lg">
@@ -58,7 +59,8 @@
                         Email
                     </label>
                     <div class="col-sm-10">
-                        <input class="form-control" id="email" name="email" placeholder="mr.popeye@gmail.com" type="email"/>
+                        <input class="form-control" id="email" name="email" placeholder="mr.popeye@gmail.com"
+                               type="email" required/>
                     </div>
                 </div>
                 <div class="form-group form-group-lg">
@@ -67,9 +69,11 @@
                     </label>
                     <div class="col-sm-10">
                         <textarea class="form-control" cols="40" id="message" name="message" rows="10"
-                                  placeholder="Ideas or any feedback for the project?"></textarea>
+                                  placeholder="Ideas or any feedback for the project?" maxlength="300" required></textarea>
                     </div>
                 </div>
+
+
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-2">
                         <button class="btn btn-custom btn-lg btn-block" name="submit" type="submit">
@@ -77,6 +81,7 @@
                         </button>
                     </div>
                 </div>
+
             </form>
         </div>
     </div>

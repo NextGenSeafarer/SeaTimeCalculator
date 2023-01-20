@@ -43,7 +43,7 @@
         <div class="col-md-12 col-sm-12 col-xs-12">
 
 
-            <div th:insert="~{blocks/tableForHome :: table}"></div>
+                <div th:insert="~{blocks/tableForHome :: table}"></div>
 
 
             <form method="post">
@@ -57,7 +57,7 @@
                             </i>
                         </div>
                         <input class="form-control" id="begin_contract_date" name="begin_contract_date"
-                               type="date"/>
+                               type="date" required/>
                     </div>
                 </div>
 
@@ -72,7 +72,7 @@
                             </i>
                         </div>
                         <input class="form-control" id="end_contract_date" name="end_contract_date"
-                               type="date"/>
+                               type="date" required/>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@
                             </i>
                         </div>
                         <input class="form-control" id="vessel_name" name="vessel_name" placeholder="Enter vessel name"
-                               type="text"/>
+                               type="text" maxlength="20" required/>
                     </div>
 
 
@@ -102,7 +102,11 @@
                         </button>
                     </div>
                 </div>
+
             </form>
+
+                <h3 th:text="${totalTime}" class="text-white fw-bolder"></h3>
+
         </div>
     </div>
 

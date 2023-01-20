@@ -1,24 +1,21 @@
 package com.webapp.io_seatimecount.hybernate.entity;
 
 
-import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 
-@Entity
-@Table(name = "seatime")
+@Component("timeToAdd")
 public class TimeToAdd {
-    @Id // <- show that it is a primary key
-    @Column(name = "id") // <- name of the column
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // <- type of generation value strategy
     private int id;
 
-    @Column(name = "contract_start")
+
     private String contractStart;
 
-    @Column(name = "contract_finish")
+
     private String contractFinish;
 
-    @Column(name = "shipname")
+
     private String shipNAME;
 
 
@@ -40,12 +37,12 @@ public class TimeToAdd {
     public TimeToAdd() {
     }
 
+
     public TimeToAdd(String contractStart, String contractFinish, String shipNAME) {
         this.contractStart = contractStart;
         this.contractFinish = contractFinish;
         this.shipNAME = shipNAME;
     }
-
 
 
     public int getId() {

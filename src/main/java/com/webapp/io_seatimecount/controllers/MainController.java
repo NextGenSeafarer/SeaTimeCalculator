@@ -1,7 +1,9 @@
 package com.webapp.io_seatimecount.controllers;
 
 
+import com.webapp.io_seatimecount.components.ApplicationContextHolder;
 import com.webapp.io_seatimecount.countingLogic.ControllerLogic;
+import com.webapp.io_seatimecount.countingLogic.onlyTime;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,8 +18,19 @@ public class MainController {
 
     @GetMapping("/")
     public String home(Model model) {
-        model.addAttribute("counter", "\u2063"); // <- empty symbol to keep space in HTML for counter
-        ControllerLogic.setTotalDays(0);
+        ApplicationContextHolder.getApplicationContext()
+                .getBean("controllerLogic", ControllerLogic.class).clearTheList();
+        onlyTime.clearTheDays();
+        //made for cleaning the list && total days after each refresh of the page
+
+        if (ApplicationContextHolder.getApplicationContext()
+                .getBean("controllerLogic", ControllerLogic.class).getListOfTheShipsAndDates().isEmpty()) {
+            model.addAttribute("fullList", "\u2063"); // <- empty symbol to keep space in HTML for counter
+        }
+
+        model.addAttribute("fullList");
+
+
         return "home";
     }
 
@@ -27,10 +40,9 @@ public class MainController {
                              @RequestParam(value = "vessel_name", required = false) String vessel_name,
                              Model model) {
 
-        ControllerLogic.checkValidityOfTheDates(begin_contract_date, end_contract_date, vessel_name, model);
-
-
-        //DateBaseWorkWith.pushToDB(tta); // <- push to DB
+        ApplicationContextHolder.getApplicationContext()
+                .getBean("controllerLogic", ControllerLogic.class)
+                .checkValidityOfTheDates(begin_contract_date, end_contract_date, vessel_name, model);
 
 
         return "home";

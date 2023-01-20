@@ -1,7 +1,13 @@
 <div th:fragment="table">
 
+    <div th:each="el : ${fullList}" class="lead text-white">
+<!--        made for List<String> listOfTheShipsAndDates FOReach method-->
 
-        <p class="lead text-white" th:text="${counter}"></p>
+        <h5 th:text="${el}">
+<!--representation of each "el" from for each method-->
+        </h5>
+
+    </div>
 
 
 </div>
