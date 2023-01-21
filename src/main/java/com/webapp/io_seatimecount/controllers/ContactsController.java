@@ -9,12 +9,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ContactsController {
     @GetMapping("/contacts")
     public String contacts(Model model) {
+        model.addAttribute("Success", "\u2063");
+
         return "contacts";
     }
 
     @PostMapping("/contacts")
     public String getInfoFromForm(Model model) {
-
+            model.addAttribute("Success", "We will contact you soon!");
         return "contacts";
     }
 }

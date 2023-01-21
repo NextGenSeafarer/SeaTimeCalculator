@@ -25,7 +25,7 @@ public class MainController {
 
         if (ApplicationContextHolder.getApplicationContext()
                 .getBean("controllerLogic", ControllerLogic.class).getListOfTheShipsAndDates().isEmpty()) {
-            model.addAttribute("fullList", "\u2063"); // <- empty symbol to keep space in HTML for counter
+            model.addAttribute("fullList", "\u2063"); // < - empty symbol to keep space in HTML for counter
         }
 
         model.addAttribute("fullList");
