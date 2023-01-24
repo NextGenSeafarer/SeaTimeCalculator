@@ -1,0 +1,72 @@
+Short guide/reference for creating Spring boot application step by step:
+                                                 made by Pochinskii Ilia
+
+1. App is to be created by reference: https://spring.io/guides/gs/serving-web-content/
+https://start.spring.io/ - is to be used for easy start - up, dependencies in current project:
+Spring Web, Thymeleaf
+
+Project: Maven
+Lang: Java
+Spring Boot: 3.0.2 (or newer)
+Project metadata: can be used as needed (java version better 17)
+
+
+2. Open the project in IDE, maven will upload dependencies in auto mode
+
+3. Make your project, by starting Application it will be deployed to http://localhost:8080/
+if it is busy by other project or app, than just go to application.properties and change (or create)
+        server.port=80 (or 81 or 82 etc.)
+Why to use straight port 80 and not 8080/8081/8082, because later while deploying to the server standard port
+for HTTP is 80, so you can access you app without use ip:8080, but just by IP or domain;
+
+Otherwise, I'm using copy of application.properties, named :
+application-dev.properties, in IntelliJ IDEA go to Edit configurations -> program arguments -> add : "--spring.profiles.active=dev"
+that will use this app.properties once starting local project for tests, and will not affect the original for server itself
+
+4. Time for finding the server VDS/VPS, I'm using the https://timeweb.cloud/ just because it's easy to configure + cheep (3$/month)
+In advance buy the domain if needed (or just use free domain given by the timeweb)
+
+5. Configure the server, install Ubuntu as start OS, no any additional framework needs at the moment
+
+6. Install java, because it's empty server by means of:
+                        sudo apt install openjdk-19-jdk (19 is just a version, can be changed)
+You can use terminal (macOS) in IJ IDEA and make SSH session, passwords and etc. is given by timeweb to you email.
+Or use terminal on timeweb website, but it is not comfortable due to no scrolling and no normal copy/paste format
+
+check that java is installed by : java -version it should give something like:
+
+openjdk version "19.0.1" 2022-10-18
+OpenJDK Runtime Environment (build 19.0.1+10-Ubuntu-1ubuntu122.04)
+OpenJDK 64-Bit Server VM (build 19.0.1+10-Ubuntu-1ubuntu122.04, mixed mode, sharing)
+
+7. Go to IJ IDEA -> Maven -> *yourProjectName* -> Lifecycle -> deploy
+It will deploy your app to jar file and save in target folder (as default)
+If git is not connected to the project, connect it, otherwise just uppload deployedApp.jar to your
+repository
+
+8. Create folder on your server by : mkdir application
+9. Go to folder by : cd application
+10. Use : git clone *link for your github repo*
+11. Start your app by : java -jar deployedApp.jar
+12. if you can see:
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.0.1)
+
+2023-01-24T17:42:38.368+03:00  INFO 8168 --- [           main] com.webapp.io_seatimecount.Application   : Starting Application using Java 19.0.2 with PID 8168 (/Users/ilia/IdeaProjects/JavaLearning/SeaTimeCalculator/target/classes started by ilia in /Users/ilia/IdeaProjects/JavaLearning/SeaTimeCalculator)
+2023-01-24T17:42:38.369+03:00  INFO 8168 --- [           main] com.webapp.io_seatimecount.Application   : The following 1 profile is active: "dev"
+2023-01-24T17:42:38.715+03:00  INFO 8168 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-01-24T17:42:38.719+03:00  INFO 8168 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-01-24T17:42:38.720+03:00  INFO 8168 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.4]
+2023-01-24T17:42:38.760+03:00  INFO 8168 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-01-24T17:42:38.760+03:00  INFO 8168 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 371 ms
+2023-01-24T17:42:38.923+03:00  INFO 8168 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-24T17:42:38.928+03:00  INFO 8168 --- [           main] com.webapp.io_seatimecount.Application   : Started Application in 0.754 seconds (process running for 1.104)
+
+Go to your IP address and enjoy
+Profit?!
